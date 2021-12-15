@@ -6,6 +6,7 @@ repositories {
     mavenCentral()
 }
 
+
 tasks {
     sourceSets {
         main {
@@ -17,3 +18,6 @@ tasks {
         gradleVersion = "7.3"
     }
 }
+//tasks.withType<Test> {
+//    useJUnitPlatform()
+//}
