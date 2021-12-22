@@ -13,11 +13,14 @@ tasks {
             java.srcDirs("src")
         }
     }
+    dependencies {
+        testImplementation("org.junit.platform:")
+    }
 
     wrapper {
         gradleVersion = "7.3"
     }
 }
-//tasks.withType<Test> {
-//    useJUnitPlatform()
-//}
+tasks.withType<Test> {
+    useJUnitPlatform()
+}

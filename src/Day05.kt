@@ -13,14 +13,23 @@ fun main() {
         }
         return res
     }
-    fun part1Test(): Int {
+    fun part1Test() {
         val input = readInput("Day05_test")
-        val lines = input.map { parseSegment(it) }
+        val lines = input.map { parseSegment(it) }.filter { it.isValid() }
         val intersections = countIntersections(lines)
-        assert(intersections.filter { it.value > 2 }.size == 5)
-        return intersections.filter { it.value > 2 }.size
+        val answer = intersections.filter { it.value > 1 }.size
+        println("Part1Test: $answer")
+        check(answer == 5)
+    }
+    fun part1() {
+        val input = readInput("Day05")
+        val lines = input.map { parseSegment(it) }.filter { it.isValid() }
+        val intersections = countIntersections(lines)
+        val answer = intersections.filter { it.value >= 2 }.size
+        println("Part 1 answer: $answer")
     }
     part1Test()
+    part1()
 }
 
 data class Point(val x: Int, val y: Int)
